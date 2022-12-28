@@ -6,6 +6,7 @@ export const SummonerProvider = ({ children }) => {
     const [searchText, setSearchText] = useState('')
     const [playerdata, setPlayerData] = useState({})
     const [playererror, setPlayerError] = useState({})
+
     const getSummonerData = () => {
         setPlayerData({})
         if (searchText != '') {

@@ -1,15 +1,11 @@
 import React, { useContext, useEffect } from 'react'
 import { SummonerContext } from '../context'
 import { SummonerRanksCard } from '../SummonerRanksCard/SummonerRanksCard'
-import { SummonerRanks } from '../helpers'
+
 const SummonerCard = () => {
     const { playerdata } = useContext(SummonerContext)
     const { name, profileIconId, summonerLevel } = playerdata
-    const { ranks, dataRanks } = SummonerRanks()
 
-    useEffect(() => {
-        dataRanks()
-    }, []);
     return (
         <>
             <div className='container-fluid'>
@@ -24,7 +20,7 @@ const SummonerCard = () => {
                         </div>
                     </div>
                     <div className='col-6'>
-                        <SummonerRanksCard ranks={ranks} />
+                        <SummonerRanksCard />
                     </div>
                 </div>
             </div>

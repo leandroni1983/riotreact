@@ -1,9 +1,28 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { SummonerRanks } from '../helpers'
+export const SummonerRanksCard = () => {
+    const { ranks, dataRanks } = SummonerRanks()
 
-export const SummonerRanksCard = ({ ranks }) => {
+    useEffect(() => {
+        dataRanks()
+    }, []);
+
     return (
         <>
-            < div > Ranked</div >
+            < h5 > Ranked</h5 >
+            {(JSON.stringify(ranks).length > 3) ? ranks.map(r =>
+                <div className="card m-1">
+                    <div className="card-body">
+                        {r.queueType} {r.tier} {r.rank} wins {r.wins} losses {r.losses}
+                    </div>
+                </div>
+
+            )
+
+
+                : <></>}
+
+            {/*
             {(ranks.length != 0) ?
                 <>
                     <div className="card m-1">
@@ -13,13 +32,13 @@ export const SummonerRanksCard = ({ ranks }) => {
                     </div>
                     <div className="card m-1">
                         <div className="card-body">
-                            {ranks[1]?.queueType}{ranks[1]?.tier} {ranks[1]?.rank} wins {ranks[1]?.wins} losses {ranks[1]?.losses}
+                            {ranks[1]?.queueType} {ranks[1]?.tier} {ranks[1]?.rank} wins {ranks[1]?.wins} losses {ranks[1]?.losses}
                         </div>
                     </div>
                 </>
                 : <> <h1>Este player no rankeo</h1></>
-            }
-            {/* {JSON.stringify(ranks)} */}
+            } */}
+
         </>
     )
 }
