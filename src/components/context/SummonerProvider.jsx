@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { SummonerContext } from './SummonerContext'
 import axios from 'axios'
 export const SummonerProvider = ({ children }) => {
-    const api_key = 'RGAPI-f6a0efb3-da51-4e9f-be02-2726340cf9be'
+    const api_key = import.meta.env.VITE_API_KEY
     const [searchText, setSearchText] = useState('')
     const [playerdata, setPlayerData] = useState({})
     const [playererror, setPlayerError] = useState({})
