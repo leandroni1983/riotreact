@@ -7,11 +7,12 @@ export const SummonerProvider = ({ children }) => {
     const [playerdata, setPlayerData] = useState({})
     const [playererror, setPlayerError] = useState({})
 
-    const getSummonerData = () => {
+
+    const getSummonerData = async () => {
         setPlayerData({})
         if (searchText != '') {
             const baseURL = `https://la2.api.riotgames.com/lol/summoner/v4/summoners/by-name/${searchText}?api_key=${api_key}`
-            axios.get(baseURL)
+            await axios.get(baseURL)
                 .then(function (response) { setPlayerData(response.data) })
                 .catch(function (error) { setPlayerError(error.message) })
         }

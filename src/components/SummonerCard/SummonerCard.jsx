@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
+import { ChampionsCards, SummonerRanksCard } from '../../components'
 import { SummonerContext } from '../context'
-import { SummonerRanksCard } from '../SummonerRanksCard/SummonerRanksCard'
 
 const SummonerCard = () => {
     const { playerdata } = useContext(SummonerContext)
@@ -21,6 +21,7 @@ const SummonerCard = () => {
                     </div>
                     <div className='col-6'>
                         <SummonerRanksCard />
+                        <ChampionsCards />
                     </div>
                 </div>
             </div>
